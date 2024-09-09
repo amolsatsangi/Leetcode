@@ -18,6 +18,7 @@ You can clone this repository and explore the solutions for different problems. 
 ```bash
 git clone https://github.com/amolsatsangi/Leetcode.git
 cd Leetcode
+```
 
 ## Contributing
 

@@ -30,3 +30,18 @@ Example 2:
 Input: arr = [4,8,2,10], queries = [[2,3],[1,3],[0,0],[0,3]]
 Output: [8,0,4,4]
 ```
+## Approach
+XOR Prefix
+The key idea is to use a prefix XOR array, where each element at index i stores the XOR of all elements from the beginning of the array up to i. This allows for efficiently computing the XOR of any subarray in constant time.
+
+Create a prefix array, where each element at index i stores all XOR elements from beginning up to i.
+prefix[i] = arr[0] ^ arr[1] ^ arr[2} ...... ^ arr[i]
+
+The XOR of elements between indices left and right can be calculated as:
+if left == 0 prefixXOR[right]
+if left > 0 prefixXOR[right] ^ prefixXOR[left-1]
+```text
+prefixXOR[right] ^ prefixXOR[left-1] = (arr[0] ^ arr[1]...... arr[left-1]^ arr[left] ^ arr[left +1] ...... arr[right]) ^ (arr[0] ^ arr[1]...... ^ arr[left-1] )
+prefixXOR[right] ^ prefixXOR[left-1] = (arr[left] ^ arr[left +1] ...... arr[right])
+prefixXOR[right] ^ prefixXOR[left-1] =  XOR from L to R
+```

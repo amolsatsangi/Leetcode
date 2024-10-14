@@ -15,11 +15,12 @@ public:
     void inorder(TreeNode * root, int low, int high)
     {
         if(root){
+            if(root->val>=low)
             inorder(root->left, low, high);
             if(root ->val >=low && root ->val<=high){
                 sum+=root->val;
-                cout<<root->val<<" "<<sum<<endl;
             }
+            if(root->val<=high)
             inorder(root->right, low, high);
         }
     }

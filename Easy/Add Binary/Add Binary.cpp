@@ -1,18 +1,91 @@
 class Solution {
 public:
-    int searchInsert(vector<int>& nums, int target) {
-        int start {0}, mid{0}, end= nums.size()-1;
-        while(start<=end){
-            mid = (start+end)/2;
-            if(nums[mid]==target)
-                return mid;
-            else if(nums[mid]<target){
-                start = mid+1;
+    string addBinary(string a, string b) {
+        string str="";
+        char carry = '2';
+        int i=a.size()-1,j=b.size()-1;
+        while(i>=0 && j>=0){
+            if(a[i] == '1' && b[j]=='1'){
+                if(carry == '1')
+                    str='1'+str;
+                else
+                    str='0'+str;
+                carry = '1';
+            }
+            else if(a[i] =='1' || b[j] == '1'){
+                if(carry == '1'){
+                    str='0'+str;
+                    carry = '1';
+                }
+                else{
+                    str = '1'+str;
+                    carry = '0';
+            }
             }
             else{
-                end = mid -1;
+                if(carry=='1'){
+                    str='1'+str;
+                    carry='0';
+                }
+                else{
+                    str='0'+str;
+                    carry='0';
+                }
             }
+            i--;j--;
         }
-    return start;
-    }
+        while(i>=0){
+            if(a[i]=='1'){
+                if(carry=='1'){
+                    str='0'+str;
+                    carry='1';
+                }
+                else{
+                    str='1'+str;
+                    carry='0';
+                }
+            }
+            else{
+                if(carry=='1'){
+                    str='1'+str;
+                    carry='0';
+                }
+                else{
+                    str='0'+str;
+                    carry='0';
+                }
+            }
+            i--;
+            
+        }
+        while(j>=0){
+
+            if(b[j]=='1'){
+                if(carry=='1'){
+                    str='0'+str;
+                    carry='1';
+                }
+                else{
+                    str='1'+str;
+                    carry='0';
+                }
+            }
+            else{
+                if(carry=='1'){
+                    str='1'+str;
+                    carry='0';
+                }
+                else{
+                    str='0'+str;
+                    carry='0';
+                }
+            }
+            j--;
+        }
+        while(carry=='1'){
+            str='1'+str;
+            carry='0';
+        }
+    return str;
+}
 };

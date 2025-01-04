@@ -1,28 +1,17 @@
-# Longest Common Prefix
+## Intuition
+The idea is based on sorting the array of strings. The smallest and largest strings (lexicographically) will have the minimum common prefix. By comparing characters of the first and last strings in the sorted array, we can efficiently find the longest common prefix.
 
-[Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/?envType=study-plan-v2&envId=top-interview-150)
+## Approach
+1. Sort the array of strings lexicographically.
+2. Compare characters of the first and last strings in the sorted array, as they will determine the shortest possible prefix.
+3. Accumulate the common characters until a mismatch is found or until the end of one of the strings.
+4. Return the accumulated common prefix.
 
-## Problem Description
+## Complexity
+- **Time complexity:**  
+  - Sorting the strings: O(n * m * log n), where n is the number of strings, and m is the average length of the strings.  
+  - Comparing characters: O(m).  
+  - Overall: O(n * m * log n).
 
-Write a function to find the longest common prefix string amongst an array of strings.
-
-If there is no common prefix, return an empty string `""`.
-
-### Example 1:
-```
-Input: strs = ["flower","flow","flight"] 
-Output: "fl"
-```
-### Example 2:
-```
-Input: strs = ["dog","racecar","car"] 
-Output: "" 
-Explanation: There is no common prefix among the input strings.
-```
-
-### Constraints:
-- `1 <= strs.length <= 200`
-- `0 <= strs[i].length <= 200`
-- `strs[i]` consists of only lowercase English letters.
-
----
+- **Space complexity:**  
+  - O(1), as no additional data structures are used other than variables for storage.

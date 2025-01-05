@@ -17,7 +17,7 @@ This repository contains my solutions to various LeetCode problems categorized b
 
 ## Easy Problems
 
-| #   | Title                                                              | Solution                                       | Difficulty |
+| No. | Title                                                              | Solution                                       | Difficulty |
 |-----|--------------------------------------------------------------------|------------------------------------------------|------------|
 | 1   | [Two Sum](https://leetcode.com/problems/two-sum)                  | [C++](./easy/two_sum.cpp)                     | Easy       |
 | 2   | [Palindrome Number](https://leetcode.com/problems/palindrome-number) | [C++](./easy/palindrome_number.cpp)          | Easy       |
@@ -57,7 +57,7 @@ This repository contains my solutions to various LeetCode problems categorized b
 
 ## Medium Problems
 
-| #   | Title                                                              | Solution                                       | Difficulty |
+| No. | Title                                                              | Solution                                       | Difficulty |
 |-----|--------------------------------------------------------------------|------------------------------------------------|------------|
 | 1   | [Add Two Numbers](https://leetcode.com/problems/add-two-numbers)   | [C++](./medium/add_two_numbers.cpp)          | Medium     |
 | 2   | [Delete Nodes From Linked List Present in Array](https://leetcode.com/problems/delete-nodes-from-linked-list-present-in-array) | [C++](./medium/delete_nodes_from_linked_list.cpp) | Medium     |

@@ -1,18 +1,16 @@
 # Majority Element II
 
-**Link to the problem:** [Majority Element II](https://leetcode.com/problems/majority-element-ii/description/)
+**Problem Link:** [Majority Element II](https://leetcode.com/problems/majority-element-ii/description/)
 
 ## Intuition
-The problem asks us to find all elements that appear more than `n/3` times in the array. My initial thought was to count the frequency of each element and identify those that satisfy this condition.
+The problem involves finding elements that appear more than `n/3` times in the given array. Initially, I thought about using a hashmap to count frequencies but realized that this would take extra space. I then recalled the Boyer-Moore Voting Algorithm, which efficiently handles such problems with constant space.
 
 ## Approach
-1. Use a hash map to count the frequency of each element in the array.
-2. Iterate through the map to find elements whose frequency is greater than `n/3`, where `n` is the size of the array.
-3. Store these elements in a result list and return it.
+- Use two candidate variables (`el1` and `el2`) and their respective counters (`count1` and `count2`).
+- In the first pass, identify potential candidates for majority elements by updating counters based on their occurrences.
+- In the second pass, validate these candidates by counting their actual occurrences in the array.
+- Finally, return the candidates that meet the `n/3` threshold.
 
 ## Complexity
-- **Time complexity:** O(n)  
-   Iterating through the array to count elements and then iterating through the hash map to check conditions are both linear operations.
-
-- **Space complexity:** O(n)  
-   The hash map requires additional space proportional to the number of distinct elements in the array.
+- **Time complexity:** O(n), where n is the size of the array. The algorithm requires two linear passes over the array.
+- **Space complexity:** O(1), as we only use a constant amount of additional space.

@@ -1,51 +1,17 @@
-# Intuition
-Store all the nodes values and then find twin sum for nodes and return the maximum twin sum.
+# Maximum Twin Sum of a Linked List
 
-# Approach
-* Traverse the linked list and store all node values in a vector
-* Determine the size n of the vector.
-* Initialize a variable sum to track the maximum twin sum.
-* Use a loop to compute twin sums as vec[i] + vec[n-i-1] for the first half of the vector.
-* Update sum with the maximum twin sum found.
-* Return the final maximum twin sum.
+**Problem Link:** [Maximum Twin Sum of a Linked List](https://leetcode.com/problems/maximum-twin-sum-of-a-linked-list/description/)
 
-# Complexity
-* Time complexity: O(n)
-* Space complexity: O(n)
+## Intuition
+The problem requires finding the maximum sum of twin nodes in a linked list. Since the twin nodes are symmetrically positioned, reversing the second half of the list allows for direct pairwise summation.
 
-# Code
-```
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode() : val(0), next(nullptr) {}
- *     ListNode(int x) : val(x), next(nullptr) {}
- *     ListNode(int x, ListNode *next) : val(x), next(next) {}
- * };
- */
-class Solution {
-public:
-    int pairSum(ListNode* head) {
-        
-        int sum = 0;
-        vector<int> vec;
+## Approach
+1. Use the fast and slow pointer technique to locate the middle of the linked list.
+2. Reverse the second half of the list.
+3. Iterate through both halves simultaneously to compute and track the maximum twin sum.
+4. Return the maximum sum found.
 
-        while(head != nullptr)
-        {
-            vec.push_back(head->val);
-            head = head -> next;
-        }
+## Complexity
+- **Time Complexity:** O(N), where \(N\) is the number of nodes in the linked list (finding the middle, reversing the list, and computing twin sums all take linear time).
+- **Space Complexity:** O(1), as the algorithm uses constant extra space.
 
-        int n = vec.size();
-
-        for(int i=0; i< n/2; i++)
-        {
-            sum = max(sum, vec[i] + vec[n-i-1]);
-        }
-
-        return sum;
-    }
-};
-```

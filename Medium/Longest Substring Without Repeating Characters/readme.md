@@ -1,19 +1,17 @@
 # Longest Substring Without Repeating Characters
 
-**Link to the problem:** [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
-
----
+**Link to the problem:** [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/description/)
 
 ## Intuition
-The goal is to find the length of the longest substring without repeating characters. The natural idea is to use a sliding window to keep track of characters we've seen so far and adjust the window when we encounter a duplicate.
-
----
+To find the longest substring without repeating characters, the idea is to maintain a sliding window and track characters we've already seen. If a repeating character is found, shift the start of the window just after the previous occurrence of the character.
 
 ## Approach
-We use two pointers `i` and `j` to define the current substring window. Starting with the first character, we expand the window by moving `j` forward while characters are unique. If a duplicate is found, we move `i` forward and reset the substring. We track the maximum length of such substrings throughout the process.
+We use two pointers, `i` and `j`, to define the window and an unordered map to keep track of the most recent index of each character. We move `j` through the string:
+- If the character is not in the current window, we update the map and extend the window.
+- If it is, we move `i` to the right of the previous occurrence to maintain uniqueness.
 
----
+We continuously update the maximum window length as we iterate.
 
 ## Complexity
-- **Time complexity:** O(n²) in the worst case due to repeated substring construction and search.
-- **Space complexity:** O(k), where `k` is the length of the current substring (at most n), used to store the temporary substring.
+- **Time complexity:** O(n), where n is the length of the string. Each character is visited at most twice.
+- **Space complexity:** O(min(n, m)), where m is the size of the character set (typically 26 for lowercase letters or 128 for ASCII).

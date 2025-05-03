@@ -13,8 +13,6 @@ public:
         vector<int> vis;
         q.push(start);
         while(!q.empty()){
-            int qsize=q.size();
-            while(qsize){
                 int node = q.front();
                 q.pop();
                 visited[node]=1;
@@ -25,8 +23,6 @@ public:
                         q.push(adj_list[node][i]);
                         visited[adj_list[node][i]]=1;
                     }
-                }
-            qsize--;
             }
         }
     return vis;

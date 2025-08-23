@@ -1,6 +1,6 @@
 class Solution {
 public:
-    void generate(vector<int> nums,vector<vector<int>> &superset,vector<int> &parent,int i){
+    void generate(vector<int> &nums,vector<vector<int>> &superset,vector<int> &parent,int i){
         if(i==nums.size()){
             superset.push_back(parent);
             return;

@@ -1,12 +1,17 @@
 class Solution {
 public:
-    int subsetXORSum(vector<int>& nums) {
-        int XOR_sum{1};
-        for(int i=0;i<nums.size();i++){
-            for(int j=i+1;j<nums.size();j++){
-                XOR_sum = XOR_sum ^ (nums[i]^nums[j]);
-            }
+    void generate(vector<int>& nums,int xor_sum,int i,int & sum){
+        if(i==nums.size()){
+            sum = sum+xor_sum;
+            return;
         }
-    return XOR_sum;
+        generate(nums,xor_sum,i+1,sum);
+        xor_sum = xor_sum^nums[i];
+        generate(nums,xor_sum,i+1,sum);
+    }
+    int subsetXORSum(vector<int>& nums) {
+       int xor_sum{0},sum{0};
+       generate(nums,xor_sum,0,sum);
+    return sum;
     }
 };
